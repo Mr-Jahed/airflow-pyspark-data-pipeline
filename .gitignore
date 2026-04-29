@@ -1,0 +1,95 @@
+# Environment and credentials
+.env
+.env.*
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+logs/
+*.log
+
+# Data - raw and processed data should never be committed
+data/raw/
+data/processed/
+data/incremental_tracker.json
+
+# Parquet and CSV outputs
+*.parquet
+*.snappy.parquet
+*.csv
+
+# Airflow
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+webserver_config.py
+airflow_settings.yaml
+standalone_admin_password.txt
+unittests.cfg
+
+# Astro
+.astro/
+
+# Docker
+.dockerignore
+
+# Java
+*.class
+*.jar
+*.war
+hs_err_pid*
+
+# Spark
+derby.log
+metastore_db/
+spark-warehouse/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+*.swp
+*.swo
+*~
+
+# MinIO local data
+minio_data/
