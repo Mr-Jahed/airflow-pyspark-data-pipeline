@@ -26,6 +26,10 @@ def run_validate(**context):
     from scripts.validate import validate_data
     validate_data()
 
+def run_load(**context):
+    from scripts.load import load_data
+    load_data(run_date=context["ds"])
+
 with DAG(
     dag_id="batch_pipeline",
     default_args=default_args,
@@ -50,4 +54,9 @@ with DAG(
         python_callable=run_validate
     )
 
-    ingest_task >> transform_task >> validate_task
+    load_task = PythonOperator(
+        task_id="load",
+        python_callable=run_load
+    )
+
+    ingest_task >> transform_task >> validate_task >> load_task

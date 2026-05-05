@@ -1,4 +1,3 @@
-version: "3"
 services:
   minio:
     image: minio/minio
@@ -15,8 +14,23 @@ services:
     networks:
       - data-pipeline-project_ea4162_airflow
 
+  pipeline-postgres:
+    image: postgres:15
+    container_name: pipeline-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: sales_db
+    volumes:
+      - pipeline_pg_data:/var/lib/postgresql/data
+    networks:
+      - data-pipeline-project_ea4162_airflow
+
 volumes:
   minio_data:
+  pipeline_pg_data:
 
 networks:
   data-pipeline-project_ea4162_airflow:
